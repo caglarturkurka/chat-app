@@ -1,0 +1,44 @@
+<div class="col-md-4 m-auto">
+  <!--Card-->
+  <mdb-card cascade="true" class="mt-3">
+
+    <!--Card image-->
+    <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+      <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/men.jpg"></mdb-card-img>
+      <a>
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!--/Card image-->
+
+    <mdb-card-body cascade="true" class="text-center pb-0 px-0">
+      <!--Card content-->
+      <h4 class="card-title">
+        <strong>{{user?.name}}</strong>
+      </h4>
+      <h5>{{user?.username}}</h5>
+
+      <!--Facebook-->
+      <a type="button" mdbBtn floating="true" size="sm" color="fb" class="waves-light" mdbWavesEffect>
+        <mdb-icon fab icon="facebook"></mdb-icon>
+      </a>
+      <!--Twitter-->
+      <a type="button" mdbBtn floating="true" size="sm" color="tw" class="waves-light" mdbWavesEffect>
+        <mdb-icon fab icon="twitter"></mdb-icon>
+      </a>
+      <!--Google +-->
+      <a type="button" mdbBtn floating="true" size="sm" color="dribbble" class="waves-light" mdbWavesEffect>
+        <mdb-icon fab icon="dribbble"></mdb-icon>
+      </a>
+
+      <!-- Card footer -->
+      <div class="card-footer text-muted text-center mt-4">
+        ID : {{user?.id}}
+      </div>
+
+    </mdb-card-body>
+    <!--/.Card content-->
+
+  </mdb-card>
+  <!--/.Card-->
+</div>

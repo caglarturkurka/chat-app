@@ -1,0 +1,15 @@
+<!-- Default form login -->
+<form class="text-center border border-light p-5" [formGroup]="loginForm">
+
+  <p class="h4 mb-4">Sign in</p>
+
+  <!-- Email -->
+  <input type="email" id="defaultLoginFormUsername" class="form-control mb-4" name="username" placeholder="username" formControlName="username">
+
+  <!-- Password -->
+  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="password" placeholder="Password" formControlName="password">
+
+  <!-- Sign in button -->
+  <button mdbBtn color="info" block="true" class="my-4" (click)="login()">Sign in</button>
+
+</form>

@@ -1,0 +1,35 @@
+<div class="chat-window-header">
+  <ng-container *ngIf="receiverTyping">
+
+    <span *ngIf="currentUser.id === receiverId">You ( {{senderName}} is typing... ) </span>
+    <span *ngIf="currentUser.id !== receiverId">{{receiverName}} ( {{senderName}} is typing... ) </span>
+  </ng-container>
+  <ng-container *ngIf="!receiverTyping">
+    <span *ngIf="currentUser.id === receiverId">You</span>
+    <span *ngIf="currentUser.id !== receiverId">{{receiverName}}</span>
+  </ng-container>
+</div>
+<div class="message-history">
+  <div class="messages" #messageContainer>
+    <ng-container *ngFor="let message of messages">
+      <div *ngIf="message.sentBy === senderId" class="sent">
+        {{message.message}}
+        <div class="timestamp">
+          {{message.timeStamp}}
+        </div>
+      </div>
+      <div *ngIf="message.sentBy === receiverId" class="received">
+        {{message.message}}
+        <div class="timestamp">
+          {{message.timeStamp}}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div class="user-input">
+  <input type="text" [(ngModel)]="message" placeholder="..." (keyup.enter)="sendMessage()"/>
+  <button type="button" (click)="sendMessage()">
+    <img src="../../../assets/send.svg" alt="">
+  </button>
+</div>

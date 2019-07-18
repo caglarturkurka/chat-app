@@ -1,0 +1,39 @@
+
+  <div class="container-fluid">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false" *ngIf="isAuthenticatedAndNot404()">
+
+      <!-- Navbar brand -->
+      <mdb-navbar-brand><a class="navbar-brand" href="#">CHAT APP</a></mdb-navbar-brand>
+
+      <!-- Collapsible content -->
+      <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link waves-light" mdbWavesEffect [routerLink]="'/user-list'"><mdb-icon fas icon="envelope"></mdb-icon> User List<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" mdbWavesEffect [routerLink]="'/setting'" ><mdb-icon fas icon="cog"></mdb-icon> Settings</a>
+          </li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown" dropdown>
+            <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+              <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+              <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/user-profile/' + currentUser?.id]">Profile</a>
+              <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()" >Logout</a>
+            </div>
+          </li>
+
+        </ul>
+        <!-- Links -->
+      </links>
+      <!-- Collapsible content -->
+
+    </mdb-navbar>
+    <router-outlet></router-outlet>
+  </div>
+
+

@@ -1,0 +1,44 @@
+<div class="container-fluid pt-3">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="card">
+        <div class="card-header">
+          User-List
+        </div>
+        <ul class="list-group list-group-flush" *ngFor="let user of userList">
+          <li class="list-group-item text-center" style="cursor: pointer;">
+            <span class="text-center">{{user.name}}</span>
+            <div class="row">
+              <div class="col-sm-6">
+                <button type="button" mdbBtn gradient="blue" rounded="true" mdbWavesEffect size="sm"
+                        [routerLink]="'/user-profile/' + user.id">Profile
+                </button>
+              </div>
+              <div class="col-sm-6">
+                <button type="button" mdbBtn gradient="blue" rounded="true" mdbWavesEffect size="sm"
+                        (click)="selectUser(user)">CHAT
+                </button>
+              </div>
+            </div>
+
+
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-10" *ngIf="selectedUser?.id && currentUser?.id">
+      <div class="row">
+        <div class="col-sm-6">
+          <app-chat-window [senderId]="selectedUser.id" [receiverId]="currentUser.id"></app-chat-window>
+        </div>
+
+        <div class="col-sm-6">
+          <app-chat-window [senderId]="currentUser.id" [receiverId]="selectedUser.id"></app-chat-window>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
